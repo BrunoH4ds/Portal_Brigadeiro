@@ -1,69 +1,36 @@
-import { IconBrandFacebook, IconBrandInstagram } from "@tabler/icons-react";
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "../shared/Logo";
+import FooterNavLinks from "../comp_home/footerComp/FooterNavLinks";
+import Social from "../comp_home/footerComp/Social";
+import { IconMapPin, IconPhoneCall } from "@tabler/icons-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-zinc-50/60 text-black p-5 rounded-t-md backdrop-blur-md">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 px-5">
-        {/* Logo */}
-        <div className="flex justify-center md:justify-start">
-        <Link href="/">
-          <div className="flex w-auto items-center">
-            <Image
-              src="/next.svg"
-              alt="next"
-              layout="intrinsic" // Faz com que a imagem tenha suas dimensões automáticas
-              width={180} // Defina um valor para a largura para que o layout "intrinsic" funcione
-              height={100} // A altura será ajustada automaticamente com base na proporção
-            />
-          </div>
-        </Link>
-        </div>
-
+        <Logo logo={false} width={180} />
         {/* Links de Navegação */}
         <div>
-          <ul className="flex gap-5">
-            <li>
-              <h1>Home</h1>
-              <p>pag 1</p>
-            </li>
-            <li>
-              <h1>Sobre</h1>
-              <p>sobre nós</p>
-            </li>
-            <li>
-              <h1>Contato</h1>
-              <p>fale conosco</p>
-            </li>
-            <li>
-              <h1>FAQ</h1>
-              <p>perguntas frequentes</p>
-            </li>
-          </ul>
+          <FooterNavLinks />
         </div>
 
         {/* Redes Sociais */}
-        <div className="flex gap-5 justify-center">
-          <Link
-            href="https://www.instagram.com/eebrigadeiroeduardo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="bg-zinc-700/40 p-2 rounded-md hover:bg-blue-500 transition-colors "
-          >
-            <IconBrandInstagram size={40} />
-          </Link>
-          <Link
-            href="https://www.facebook.com/EE.BrigadeiroEduardoGomes"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="bg-zinc-700/40 p-2 rounded-md hover:bg-blue-500 transition-colors"
-          >
-            <IconBrandFacebook size={40} />
-          </Link>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-2">
+            <IconMapPin size={40}/>
+            <p className="text-sm">
+              R. João Amado Coutinho, 1010 - Conj. Res. Elisio Teixeira Leite,
+              São Paulo - SP, 02815-140
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+          <IconPhoneCall size={40}/>
+            <p className="text-sm">
+            +55 11 3971-2787
+            </p>
+          </div>
+          <Social />
         </div>
       </div>
 
@@ -71,26 +38,14 @@ export default function Footer() {
       <div className="container mx-auto gap-10 px-5 flex justify-between flex-col md:flex-row mt-5">
         <div className="flex items-center justify-center">
           <Link href="/auth-pages/pt-br/legal/">
-            <p className="text-sm hover:text-blue-500 transition-colors">
-              Legal
+            <p className="text-sm hover:text-blue-900 transition-colors">
+              Desenvolvedores
             </p>
           </Link>
           <span className=" mx-2">|</span>
           <Link href="/auth-pages/pt-br/legal/privacy-policy">
-            <p className="text-sm hover:text-blue-500 transition-colors">
+            <p className="text-sm hover:text-blue-900 transition-colors">
               Política de Privacidade
-            </p>
-          </Link>
-          <span className="mx-2">|</span>
-          <Link href="/auth-pages/pt-br/legal/end-user-agreement">
-            <p className="text-sm hover:text-blue-500 transition-colors">
-              Termos de Uso
-            </p>
-          </Link>
-          <span className="mx-2">|</span>
-          <Link href="/auth-pages/pt-br/accessibility">
-            <p className="text-sm hover:text-blue-500 transition-colors">
-              Acessibilidade
             </p>
           </Link>
         </div>

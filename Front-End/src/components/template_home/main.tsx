@@ -13,7 +13,7 @@ export default function Main(props: MainProps) {
   return (
     <div
       className="flex flex-col bg-cover"
-      style={{ backgroundImage: 'url("/background.jpg")' }}
+      style={{ backgroundImage: 'url("/background.png")' }}
     >
       {props.semCabecalho ? null : <NavBar />}
 
