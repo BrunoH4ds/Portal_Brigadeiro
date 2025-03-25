@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Logo from "../shared/Logo";
-import FooterNavLinks from "../comp_home/footerComp/FooterNavLinks";
-import Social from "../comp_home/footerComp/Social";
+import FooterNavLinks from "../comp_template/footerComp/FooterNavLinks";
+import Social from "../comp_template/footerComp/Social";
 import { IconMapPin, IconPhoneCall } from "@tabler/icons-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <section className="bg-zinc-50/50 text-black p-5 rounded-t-md backdrop-blur-md">
+      <section className="bg-zinc-50/50 text-black p-5 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 px-5">
           <Logo logo={false} width={180} />
           {/* Links de Navegação */}

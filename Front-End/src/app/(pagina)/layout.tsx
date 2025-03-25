@@ -1,5 +1,5 @@
 
-import Main from "@/components/template_home/main";
+import Main from "@/components/template/main";
 
 
 export default function layout({ children }: { children: React.ReactNode }){
