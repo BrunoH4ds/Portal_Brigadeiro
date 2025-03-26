@@ -17,7 +17,7 @@ export default function Main(props: MainProps) {
       {props.semCabecalho ? null : <NavBar />}
 
       {/* Conteúdo */}
-      <main className="flex flex-1 text-white">
+      <main className="flex flex-1 justify-center items-center text-white">
         {props.children}
       </main>
       {/* Rodapé */}
