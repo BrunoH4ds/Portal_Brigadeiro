@@ -20,25 +20,24 @@ export default function Notice({ params }: NoticePageProps) {
   }
 
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col text-white">
       <Header
         titulo={NoticeOBJ.title}
         image_URl={NoticeOBJ.image}
         data={NoticeOBJ.date}
         author={NoticeOBJ.author}
       />
-      <div className="flex p-5 bg-blue-900/50 backdrop-blur-sm rounded-md mx-12 mt-10">
+      <div className="flex p-5 mx-12 mt-5">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
           <div className="flex flex-col justify-end w-full">
             {NoticeOBJ.content.map((section, index) => (
               <div key={index}>
                 {/* Título */}
-                <h2 className="text-2xl sm:text-3xl md:text-4xl text-white font-semibold mb-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl p-5 bg-white/50 rounded-md font-semibold mb-4">
                   {section.title}
-                </h2>
-
+                </h1>
                 {/* Texto */}
-                <p className="text-lg sm:text-xl md:text-2xl text-white text-justify">
+                <p className="text-lg sm:text-xl md:text-2xl  text-justify mb-5">
                   {section.text}
                 </p>
               </div>
@@ -46,14 +45,14 @@ export default function Notice({ params }: NoticePageProps) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col p-5 bg-blue-900/50 rounded-md backdrop-blur-sm mx-12 mt-5 mb-10">
+      <div className="flex flex-col bg-white/50 rounded-md  p-5 m-12">
         {/* Seção de Comentários */}
         <div className="flex mb-5">
           <input
-            className="bg-white/50 w-full text-black px-4 py-2 rounded-md focus:outline-none focus:ring focus:ring-white placeholder-gray-500"
+            className="bg-white/50 w-full text-black px-4 py-2 border border-white   rounded-md focus:outline-none ring-0 placeholder-gray-500"
             placeholder="O que você gostaria de comentar?"
           />
-          <button className="text-white font-semibold text-lg border border-white bg-blue-900 hover:bg-blue-800 py-3 px-5 rounded-md ml-3">
+          <button className=" font-semibold text-lg border border-white bg-blue-900 hover:bg-blue-800 py-3 px-5 rounded-md ml-3">
             Comentar
           </button>
         </div>
@@ -62,10 +61,10 @@ export default function Notice({ params }: NoticePageProps) {
         <div className="flex flex-col space-y-4 mb-5">
           <div className=" border border-white mb-4" />
           <div className="flex items-center justify-between space-x-4">
-            <h1 className="text-white font-bold text-xl">João Silva</h1>
+            <h1 className=" font-bold text-xl">João Silva</h1>
             <p className="text-gray-300 text-xl">26 de março de 2025</p>
           </div>
-          <p className="text-white text-lg px-4 py-2">
+          <p className=" text-lg px-4 py-2">
             Este é um exemplo de comentário! A tecnologia está transformando
             rapidamente o mercado de trabalho, com a inteligência artificial e a
             automação ganhando cada vez mais espaço nas empresas. Com isso,
@@ -81,10 +80,10 @@ export default function Notice({ params }: NoticePageProps) {
         <div className="flex flex-col space-y-4 mb-5">
           <div className=" border border-white mb-4" />
           <div className="flex items-center justify-between space-x-4">
-            <h1 className="text-white font-bold text-xl">João Silva</h1>
+            <h1 className=" font-bold text-xl">João Silva</h1>
             <p className="text-gray-300 text-xl">26 de março de 2025</p>
           </div>
-          <p className="text-white text-lg px-4 py-2">
+          <p className=" text-lg px-4 py-2">
             Este é um exemplo de comentário! A tecnologia está transformando
             rapidamente o mercado de trabalho, com a inteligência artificial e a
             automação ganhando cada vez mais espaço nas empresas. Com isso,

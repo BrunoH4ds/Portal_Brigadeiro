@@ -8,17 +8,24 @@ interface SingleItemProps {
   idPath: string;
 }
 
-export default function SingleItem({_id,title,image,idPath}: SingleItemProps) {
+export default function SingleItem({
+  _id,
+  title,
+  image,
+  idPath,
+}: SingleItemProps) {
   return (
     <Link href={`/${idPath}/${_id}`}>
-      <div className="relative flex flex-col justify-end items-center rounded-lg bg-[#3333338f] backdrop-blur-lg hover:bg-blue-900 transition-all duration-300 w-[200px] h-[250px] cursor-pointer overflow-hidden">
-        <Image
-          src={image}
-          alt={`Noticia`}
-          layout="fill"
-          className="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-40"
-        />
-        <h3 className="text-center">{title}</h3>
+      <div className="rounded-md overflow-hidden">
+        <div className="relative flex flex-col justify-end items-center p-5 bg-[#1313138f] backdrop-blur-lg hover:bg-blue-900 transition-all duration-300 w-auto h-96 cursor-pointer">
+          <Image
+            src={image}
+            alt={`Noticia: ${title}`}
+            layout="fill"
+            className="absolute top-0 left-0 w-full h-full object-cover z-[-1] opacity-40"
+          />
+          <h3 className="text-white text-2xl font-bold text-center mt-4">{title}</h3>
+        </div>
       </div>
     </Link>
   );

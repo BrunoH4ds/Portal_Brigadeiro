@@ -7,8 +7,8 @@ interface ItemListProps {
 
 export default function ItemList({ itemsArray, idPath }: ItemListProps) {
   return (
-    <div className="relative flex justify-center bg-white/50 backdrop-blur-sm rounded-md p-5 mt-10">
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 items-center gap-5 mt-3">
+    <div className="relative flex justify-center">
+      <div className="grid lg:grid-cols-1 xl:grid-cols-2 items-center w-full gap-5 mt-3">
         {itemsArray.map((currObj, index) => (
           <SingleItem idPath={idPath} {...currObj} key={`${index}`} />
         ))}

@@ -7,17 +7,17 @@ import Image from "next/image";
 
 export default function Avaliation() {
   return (
-    <section className="flex flex-col bg-blue-900/50 backdrop-blur-md p-5 gap">
+    <section className="flex flex-col p-5 gap">
       {/* Texto */}
       <div className="flex flex-col md:flex-row items-center md:justify-between">
         <h1 className="text-6xl font-bold p-2">
           Avaliação de nossos estudantes
         </h1>
         <div className="flex items-center my-5 gap-5">
-          <button className="p-1 bg-blue-900 hover:bg-blue-800 border border-zinc-50 rounded-full cursor-pointer">
+          <button className="p-1 text-white bg-white/50 hover:bg-blue-800 rounded-full cursor-pointer">
             <IconArrowBadgeLeftFilled size={50} />
           </button>
-          <button className="p-1 bg-blue-900 hover:bg-blue-800 border border-zinc-50 rounded-full cursor-pointer">
+          <button className="p-1 text-white bg-white/50 hover:bg-blue-800 rounded-full cursor-pointer">
             <IconArrowBadgeRightFilled size={50} />
           </button>
         </div>

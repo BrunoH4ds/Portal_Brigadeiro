@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function Teachers() {
   return (
-    <section className="flex flex-col justify-around text-gray-700 m-12 p-5 gap-10">
+    <section className="flex text-white flex-col justify-around p-5 gap-10">
       {/* Texto */}
-      <h1 className="text-3xl font-bold p-2 bg-white/50 shadow-lg  backdrop-blur-md rounded-md text-blue-900">
+      <h1 className="text-3xl font-bold bg-white/50 rounded-md p-2 text-blue-800">
         Conheça alguns de nossos professores
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -16,7 +16,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
-              className="object-cover w-full h-full border-b-4 border-blue-900"
+              className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
               <div className="flex gap-0.5 text-amber-300">
@@ -28,10 +28,10 @@ export default function Teachers() {
               </div>
             </div>
           </div>
-          <h1 className="text-blue-900 text-2xl font-bold mt-4">
+          <h1 className="text-blue-800 text-2xl font-bold mt-4">
             Higor Bernardez
           </h1>
-          <p className=" mt-4 text-center">
+          <p className="mt-4 text-center">
             Sou graduado em Educação Física pela Universidade de São Paulo, com
             mais de 10 anos de experiência no ensino técnico. Minha abordagem
             pedagógica foca em metodologias ativas, buscando sempre integrar
@@ -47,7 +47,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
-              className="object-cover w-full h-full border-b-4 border-blue-900"
+              className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
               <div className="flex gap-0.5 text-amber-300">
@@ -59,7 +59,7 @@ export default function Teachers() {
               </div>
             </div>
           </div>
-          <h1 className="text-blue-900 text-2xl font-bold mt-4">Joana Silva</h1>
+          <h1 className="text-blue-800 text-2xl font-bold mt-4">Joana Silva</h1>
           <p className=" mt-4 text-center">
             Sou mestre em Matemática pela Universidade Estadual de Campinas
             (UNICAMP) e tenho 8 anos de experiência no ensino de álgebra e
@@ -76,7 +76,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
-              className="object-cover w-full h-full border-b-4 border-blue-900"
+              className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
               <div className="flex gap-0.5 text-amber-300">
@@ -88,7 +88,7 @@ export default function Teachers() {
               </div>
             </div>
           </div>
-          <h1 className="text-blue-900 text-2xl font-bold mt-4">
+          <h1 className="text-blue-800 text-2xl font-bold mt-4">
             Carlos Oliveira
           </h1>
           <p className=" mt-4 text-center">

@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <section className="flex flex-col items-center bg-zinc-50/50 text-black p-5 backdrop-blur-md">
+      <section className="flex flex-col items-center bg-white/50 text-black rounded-t-md  p-5 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 px-5">
           <Logo logo={false} width={180} />
           {/* Links de Navegação */}
@@ -24,13 +24,13 @@ export default function Footer() {
         <div className="container mx-auto gap-10 px-5 flex justify-between flex-col md:flex-row mt-5">
           <div className="flex items-center justify-center">
             <Link href="/Developers">
-              <p className="text-sm hover:text-blue-900 transition-colors">
+              <p className="text-sm hover:text-blue-800 transition-colors">
                 Desenvolvedores
               </p>
             </Link>
             <span className=" mx-2">|</span>
             <Link href="/Politica-de-Privacidade">
-              <p className="text-sm hover:text-blue-900 transition-colors">
+              <p className="text-sm hover:text-blue-800 transition-colors">
                 Política de Privacidade
               </p>
             </Link>

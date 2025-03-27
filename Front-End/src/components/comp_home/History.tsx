@@ -14,9 +14,9 @@ export default function History() {
         />
       </div>
       {/* Texto */}
-      <div className="flex flex-col lg:w-1/2 items-center justify-center">
-        <h1 className="text-3xl font-bold text-blue-900">Nossa Historia</h1>
-        <p className="text-gray-700 mt-4">
+      <div className="flex flex-col lg:w-1/2  justify-center">
+        <h1 className="text-3xl font-bold border-b-2 text-blue-800">Nossa Historia</h1>
+        <p className="mt-4">
           A nossa historia começou com uma visão do Governo do Estado de São
           Paulo de expandir o acesso à educação técnica de qualidade para jovens
           em todas as regiões. Com a crescente demanda por profissionais
@@ -24,20 +24,20 @@ export default function History() {
           necessidade de uma escola pública que oferecesse cursos voltados para
           a formação de mão de obra especializada.
         </p>
-        <p className="text-gray-700 mt-4">
+        <p className="mt-4">
           A construção da escola iniciou-se em um momento de grande
           transformação no sistema educacional do Estado. Em um terreno no
           coração da comunidade, que antes era um espaço desutilizado, foi
           planejada uma infraestrutura moderna, com salas de aula equipadas,
           laboratórios técnicos e áreas de convivência para os alunos.
         </p>
-        <p className="text-gray-700 mt-4">
+        <p className="mt-4">
           A nossa escola foi inaugurada com grande entusiasmo pela comunidade
           local e autoridades estaduais, sendo um marco importante para a
           educação técnica na região. A partir de sua fundação, milhares de
           estudantes passaram por nossas portas.
         </p>
-        <p className="text-gray-700 mt-4">
+        <p className="mt-4">
           Desde então nossa Escola tem se mantido fiel ao seu propósito inicial:
           formar profissionais de excelência, preparados para atender às
           necessidades do mercado de trabalho e contribuir para o

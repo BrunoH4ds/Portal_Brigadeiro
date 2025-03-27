@@ -17,7 +17,7 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header
-      className="flex flex-col w-full h-screen bg-cover bg-center bg-blend-darken"
+      className="flex flex-col w-full h-screen bg-cover bg-center bg-blend-darken rounded-b-md"
       style={{
         backgroundImage: `url(${image_URl})`, // Usa a URL da imagem recebida via props
         backgroundColor: "rgba(0, 0, 0, 0.5)", // Cor de fundo com opacidade para escurecer
@@ -28,7 +28,7 @@ export default function Header({
         <h1 className="font-bold text-7xl">{titulo}</h1>
 
         {/* Exibe o subtítulo, se ele existir */}
-        {sub_titulo && <p className="mt-2 text-lg">{sub_titulo}</p>}
+        {sub_titulo && <p className="mt-2  text-lg">{sub_titulo}</p>}
       </div>
       <div className="flex flex-col justify-end items-center text-white">
         <div

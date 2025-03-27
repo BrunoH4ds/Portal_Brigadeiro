@@ -11,8 +11,7 @@ export interface MainProps {
 export default function Main(props: MainProps) {
   return (
     <div
-      className="flex flex-col bg-cover"
-      style={{ backgroundImage: 'url("/background2.png")' }}
+      className="flex flex-col bg-blue-950"
     >
       {props.semCabecalho ? null : <NavBar />}
 

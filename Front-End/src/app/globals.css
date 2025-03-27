@@ -20,7 +20,21 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--foreground);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@layer components {
+  .Main_Custom h1 {
+    @apply text-2xl my-3 font-bold;
+  }
+  .Main_Custom p {
+    @apply text-base  leading-relaxed;
+  }
 }
