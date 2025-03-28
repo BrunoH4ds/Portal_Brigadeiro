@@ -9,7 +9,7 @@ export default function Login() {
         <Image src="/Logo.png" alt="Logo" width={150} height={150} />
         <h1 className="font-bold text-2xl text-blue-900 text-center">Area do Aluno e Professor</h1>
         <p className="text-1xl text-center w-5/6">Caso tenha Problemas com o login entre em contato com um responsável da instituição</p>
-        <div className="my-2 w-5/6 border-b border-zinc-800" />
+        <div className="my-2 w-5/6 border-b border-black/30" />
         <div className="flex flex-col justify-center items-center w-full">
           <InputsCadAndLogin NoUserName={true} NoNumberPhone={true} />
           <ButtonsTypeAccount />

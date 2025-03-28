@@ -16,7 +16,7 @@ export default function SingleItem({
 }: SingleItemProps) {
   return (
     <Link href={`/${idPath}/${_id}`}>
-      <div className="rounded-md overflow-hidden">
+      <div className="rounded-md shadow-md overflow-hidden">
         <div className="relative flex flex-col justify-end items-center p-5 bg-[#1313138f] backdrop-blur-lg hover:bg-blue-900 transition-all duration-300 w-auto h-96 cursor-pointer">
           <Image
             src={image}

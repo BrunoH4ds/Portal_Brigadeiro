@@ -49,6 +49,7 @@ export default function Avaliation() {
             alt="Escola"
             width={500}
             height={400}
+            draggable={false}
             className="object-cover w-full h-full"
           />
           <div className="absolute flex justify-end bottom-2.5 left-2.5">

@@ -29,11 +29,11 @@ export default function Notice({ params }: NoticePageProps) {
       />
       <div className="flex p-5 mx-12 mt-5">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
-          <div className="flex flex-col justify-end w-full">
+          <div className="flex flex-col p-5 bg-white/50 rounded-md justify-end w-full">
             {NoticeOBJ.content.map((section, index) => (
               <div key={index}>
                 {/* Título */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl p-5 bg-white/50 rounded-md font-semibold mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl text-blue-900 font-semibold mb-4">
                   {section.title}
                 </h1>
                 {/* Texto */}
@@ -49,7 +49,7 @@ export default function Notice({ params }: NoticePageProps) {
         {/* Seção de Comentários */}
         <div className="flex mb-5">
           <input
-            className="bg-white/50 w-full text-black px-4 py-2 border border-white   rounded-md focus:outline-none ring-0 placeholder-gray-500"
+            className="bg-white/50 w-full text-black px-4 py-2 border border-white rounded-md focus:outline-none ring-0 placeholder-gray-500"
             placeholder="O que você gostaria de comentar?"
           />
           <button className=" font-semibold text-lg border border-white bg-blue-900 hover:bg-blue-800 py-3 px-5 rounded-md ml-3">

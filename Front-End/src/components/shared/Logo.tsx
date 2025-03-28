@@ -24,6 +24,7 @@ export default function Logo({
             layout="intrinsic" // Faz com que a imagem tenha suas dimensões automáticas
             width={width} // Defina um valor para a largura para que o layout "intrinsic" funcione
             height={height} // A altura será ajustada automaticamente com base na proporção
+            draggable={false}
           />
         </div>
       )}
@@ -35,6 +36,7 @@ export default function Logo({
             layout="intrinsic" // Faz com que a imagem tenha suas dimensões automáticas
             width={width} // Defina um valor para a largura para que o layout "intrinsic" funcione
             height={height} // A altura será ajustada automaticamente com base na proporção
+            draggable={false}
           />
         </div>
       )}

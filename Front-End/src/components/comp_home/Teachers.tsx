@@ -16,6 +16,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
+              draggable={false}
               className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
@@ -47,6 +48,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
+              draggable={false}
               className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
@@ -76,6 +78,7 @@ export default function Teachers() {
               alt="Escola"
               width={500}
               height={400}
+              draggable={false}
               className="object-cover w-full h-full border-b-4 border-blue-800"
             />
             <div className="absolute flex justify-end top-2.5 right-2.5">
