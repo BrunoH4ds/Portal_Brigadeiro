@@ -2,7 +2,7 @@ import { IconBook } from "@tabler/icons-react";
 
 export default function Faq() {
   return (
-    <div className="flex-1 mt-28 mb-8 mx-12 bg-white/50 p-8 rounded-lg shadow-xl">
+    <div className="flex-1 mt-28 mb-8 mx-3 md:mx-12 bg-white/50 p-8 rounded-lg shadow-xl">
       <div className="flex flex-col items-center text-blue-800 justify-center mb-6">
         <IconBook size={70} className="mb-1" />
         <h1 className="text-5xl font-bold mb-2 text-center">

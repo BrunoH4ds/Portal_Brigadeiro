@@ -9,7 +9,7 @@ export default function Social() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="bg-blue-900/40 p-2 rounded-md hover:bg-blue-900 transition-colors "
+            className="bg-blue-900/40 p-2 rounded-md hover:bg-blue-900 hover:text-white transition-colors "
           >
             <IconBrandInstagram size={40} />
           </Link>
@@ -18,7 +18,7 @@ export default function Social() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
-            className="bg-blue-900/40 p-2 rounded-md hover:bg-blue-900 transition-colors"
+            className="bg-blue-900/40 p-2 rounded-md hover:bg-blue-900 hover:text-white transition-colors"
           >
             <IconBrandFacebook size={40} />
           </Link>

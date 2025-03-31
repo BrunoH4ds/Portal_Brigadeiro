@@ -1,9 +1,9 @@
 import { IconHomeFilled } from "@tabler/icons-react";
 import Link from "next/link";
 
-export default function LinksTab() {
+export default function LinksTab({ isAdmin }: LinksTabProps) {
   return (
-    <ul className="flex items-center font-bold gap-7 mr-9">
+    <ul className="flex items-center font-bold gap-7 md:mr-9">
       <li className="hover:text-blue-800">
         <Link href="/Noticias">Noticias</Link>
       </li>

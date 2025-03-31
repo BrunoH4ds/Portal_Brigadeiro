@@ -25,7 +25,7 @@ export default function Header({
     >
       {/* Texto centralizado */}
       <div className="flex flex-col justify-center items-center w-full h-full text-white px-12">
-        <h1 className="font-bold text-7xl">{titulo}</h1>
+        <h1 className="font-bold text-5xl sm:text-7xl">{titulo}</h1>
 
         {/* Exibe o subtítulo, se ele existir */}
         {sub_titulo && <p className="mt-2  text-lg">{sub_titulo}</p>}

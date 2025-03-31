@@ -8,7 +8,7 @@ export default function Methodology() {
       }}
     >
       <div className="flex flex-col justify-center items-center w-3/4 h-full text-white px-5">
-        <h1 className="font-bold text-7xl">Metodologia</h1>
+        <h1 className="font-bold text-5xl sm:text-7xl">Metodologia</h1>
         <p className="mt-4 text-center">
           Nos adotamos uma metodologia ativa de ensino, que coloca o aluno como
           protagonista do seu aprendizado. Acreditamos na integração entre
