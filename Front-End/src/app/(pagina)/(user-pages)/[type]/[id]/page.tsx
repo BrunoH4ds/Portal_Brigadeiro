@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { UsersArrayAluno } from "@/database/UsersArrayAluno"; // Importando array de alunos
 import { UsersArrayProfessor } from "@/database/UsersArrayProfessor"; // Importando array de professores
 import { useUser } from "@/context/UserContext";
@@ -20,16 +20,6 @@ export default function StudentPage({ params }: StudentPageProps) {
   const { logout, isAdmin, isLoggedIn } = useUser(); // Obtemos o usuário diretamente do contexto
   const router = useRouter();
 
-  if (!isLoggedIn) {
-    router.push("/Entrar")
-    return <Loading/>;
-  }
-  // Lógica de logout
-  const handleLogout = () => {
-    logout(); // Limpa o estado do usuário no contexto
-    router.push("/Entrar"); // Redireciona para a página de login após o logout
-  };
-
   let AccountOBJ: any = null;
 
   // Certifique-se de que o 'id' seja convertido para o tipo correto se necessário
@@ -45,9 +35,30 @@ export default function StudentPage({ params }: StudentPageProps) {
     );
   }
 
+  // Se o AccountOBJ não existir, exibe o NotFoundError
   if (!AccountOBJ) {
-    return <NotFoundError/>;
+    return <NotFoundError />;
   }
+
+  useEffect(() => {
+    // Só faz a navegação após a renderização
+    if (isLoggedIn) {
+      // Redireciona para a página do usuário
+      router.push(`/${type}/${id}`);
+    } else {
+      // Se o usuário não estiver logado, redireciona para a página de login
+      router.push("/Entrar");
+    }
+  }, [isLoggedIn, router, id, type]); // Apenas dispara quando a login estiver alterado
+
+  if (!isLoggedIn) {
+    return <Loading />; // Exibe o Loading enquanto o login não estiver validado
+  }
+
+  // Lógica de logout
+  const handleLogout = () => {
+    logout(); // Limpa o estado do usuário no contexto
+  };
 
   return (
     <div className="flex-col lg:flex-row flex-1 mt-28 mb-8 mx-3 gap-8 lg:gap-0 p-8 lg:p-0 lg:mx-12 bg-white/50 rounded-lg shadow-xl flex">
@@ -163,9 +174,7 @@ export default function StudentPage({ params }: StudentPageProps) {
                   alt="Cmsp"
                   className="rounded-md"
                 />
-                <span className="truncate max-w-full text-wrap">
-                  Cmsp
-                </span>
+                <span className="truncate max-w-full text-wrap">Cmsp</span>
               </div>
             </div>
           </Link>

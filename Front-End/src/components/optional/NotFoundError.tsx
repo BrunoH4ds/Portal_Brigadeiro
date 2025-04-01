@@ -14,7 +14,7 @@ export default function NotFoundError() {
             A página que você está procurando não existe ou foi removida.
           </p>
           <Link href="/" passHref>
-            <button className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-lg">
+            <button className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-lg cursor-pointer">
               Voltar para a Página Inicial
             </button>
           </Link>

@@ -16,7 +16,7 @@ export default function Cursos() {
         image_URl="https://blog.marcusoliveiradev.com.br/wp-content/uploads/2022/11/pexels-luis-gomes-546819-1.jpg"
       />
 
-      <div className="flex m-3 md:mx-12 mt-5">
+      <div className="flex m-3 mb-8 md:mx-12 mt-8">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
           <div className="flex flex-col items-center p-5 bg-white/50 rounded-md justify-end w-full">
             <SectionDescription
@@ -104,7 +104,7 @@ export default function Cursos() {
         titulo="Logistica"
         image_URl="https://media.sankhya.com.br/wp-content/uploads/2017/11/distribuicao-e-logistica.png"
       />
-      <div className="flex m-3 md:mx-12 mt-5">
+      <div className="flex m-3 mb-8 md:mx-12 mt-8">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
           <div className="flex flex-col items-center p-5 bg-white/50 rounded-md justify-end w-full">
             <SectionDescription

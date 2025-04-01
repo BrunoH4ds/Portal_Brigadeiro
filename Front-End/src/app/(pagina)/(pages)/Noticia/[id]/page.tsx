@@ -28,7 +28,7 @@ export default function Notice({ params }: NoticePageProps) {
         data={NoticeOBJ.date}
         author={NoticeOBJ.author}
       />
-      <div className="flex mx-3 md:mx-12 mt-5">
+      <div className="flex mx-3 md:mx-12 mt-8">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
           <div className="flex flex-col p-5 bg-white/50 rounded-md justify-end w-full">
             {NoticeOBJ.content.map((section, index) => (
@@ -46,7 +46,7 @@ export default function Notice({ params }: NoticePageProps) {
           </div>
         </div>
       </div>
-      <div className="flex flex-col bg-white/50 rounded-md m-3 p-5 md:m-12">
+      <div className="flex flex-col bg-white/50 rounded-md m-3 p-5 mb-8 md:m-12">
         {/* Seção de Comentários */}
         <div className="flex mb-5">
           <input

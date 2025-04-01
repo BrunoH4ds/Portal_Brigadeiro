@@ -28,8 +28,13 @@ export default function ButtonsTypeAccount({
 
   // Função de login
   const handleLogin = () => {
+    if ((email === undefined || email === null || email === "") || (password === undefined || password === null || password === "")) {
+      setError("Não esqueça de preencher todos os campos");
+      return;
+    }    
+
     if (!selectedType) {
-      setError("Selecione o tipo de usuário!");
+      setError("Selecione o tipo de usuário");
       return;
     }
 
@@ -53,14 +58,20 @@ export default function ButtonsTypeAccount({
       setIsAdmin(user.admin);
       router.push(`/${user.type}/${user._id}`);
     } else {
-      setError("Email ou senha incorretos!");
+      setError("Email ou senha incorretos");
     }
   };
 
   return (
     <div className="flex w-full flex-col items-center gap-1">
+      {/* Exibe erro se houver */}
+      {error && (
+        <p className="text-red-600 mb-1">
+          {error}
+        </p>
+      )}
       {/* Botões para selecionar tipo de usuário */}
-      <div className="flex gap-5">
+      <div className="flex flex-col items-center sm:flex-row gap-5">
         <button
           className={`flex items-center gap-2 p-2 border border-blue-900 rounded-3xl cursor-pointer ${
             selectedType === "aluno"
@@ -90,9 +101,6 @@ export default function ButtonsTypeAccount({
       >
         Entrar
       </button>
-
-      {/* Exibe erro se houver */}
-      {error && <p className="text-red-600">{error}</p>}
     </div>
   );
 }
