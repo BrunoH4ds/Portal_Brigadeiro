@@ -5,9 +5,9 @@ import { UsersArrayAluno } from "@/database/UsersArrayAluno"; // Importando arra
 import { UsersArrayProfessor } from "@/database/UsersArrayProfessor"; // Importando array de professores
 import { useUser } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
-import { IconClipboard, IconUser } from "@tabler/icons-react";
+import { IconUser } from "@tabler/icons-react";
+import LinkPortal from "@/components/comp_user/LinkPortal";
 import Link from "next/link";
-import Image from "next/image";
 import Loading from "@/components/optional/Loading";
 import NotFoundError from "@/components/optional/NotFoundError";
 
@@ -42,14 +42,11 @@ export default function StudentPage({ params }: StudentPageProps) {
 
   useEffect(() => {
     // Só faz a navegação após a renderização
-    if (isLoggedIn) {
+    if (!isLoggedIn) {
       // Redireciona para a página do usuário
-      router.push(`/${type}/${id}`);
-    } else {
-      // Se o usuário não estiver logado, redireciona para a página de login
       router.push("/Entrar");
     }
-  }, [isLoggedIn, router, id, type]); // Apenas dispara quando a login estiver alterado
+  }, [isLoggedIn, router]); // Apenas dispara quando a login estiver alterado
 
   if (!isLoggedIn) {
     return <Loading />; // Exibe o Loading enquanto o login não estiver validado
@@ -90,7 +87,18 @@ export default function StudentPage({ params }: StudentPageProps) {
             </p>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex flex-col justify-end">
+            {isAdmin && isLoggedIn && (
+              <Link
+                href="/Admin"
+                className="text-xl text-gray-800 bg-blue-800 hover:bg-blue-700 cursor-pointer py-2 px-6 text-white rounded-md w-full mt-4 transition-all duration-300 ease-in-out"
+              >
+                <div className="flex justify-center items-center gap-2">
+                  Administração
+                </div>
+              </Link>
+            )}
+
             {/* Botão de logout */}
             {isLoggedIn && (
               <button
@@ -125,141 +133,42 @@ export default function StudentPage({ params }: StudentPageProps) {
           <p className="text-lg text-gray-700">{AccountOBJ.Ra}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {isAdmin && isLoggedIn && (
-            <Link
-              href="/Admin"
-              className="text-2xl font-semibold text-gray-800"
-            >
-              <div className="w-full h-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md space-y-4">
-                <div className="flex items-center gap-2">
-                  <IconClipboard size={50} /> Administração
-                </div>
-              </div>
-            </Link>
-          )}
-          <Link
+          <LinkPortal
             href="https://saladofuturo.educacao.sp.gov.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://images.sftcdn.net/images/t_app-icon-m/p/9ba2a0a6-dd15-4dcf-a5bb-9edba5d219ff/3011115403/sala-do-futuro-professor-logo"
-                  width={70}
-                  height={50}
-                  alt="Sala Do Futuro"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">
-                  Sala Do Futuro
-                </span>
-              </div>
-            </div>
-          </Link>
-
-          <Link
+            image="https://images.sftcdn.net/images/t_app-icon-m/p/9ba2a0a6-dd15-4dcf-a5bb-9edba5d219ff/3011115403/sala-do-futuro-professor-logo"
+            name="Sala Do Futuro"
+            alt="Sala Do Futuro"
+          />
+          <LinkPortal
             href="https://cmspweb.ip.tv"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/pc5HVEaryskRc7tqNGZ0ZhlMscseYU.png"
-                  width={70}
-                  height={50}
-                  alt="Cmsp"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">Cmsp</span>
-              </div>
-            </div>
-          </Link>
-
-          <Link
+            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/pc5HVEaryskRc7tqNGZ0ZhlMscseYU.png"
+            name="Cmsp"
+            alt="Cmsp"
+          />
+          <LinkPortal
             href="https://educacaoprofissional.educacao.sp.gov.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/elianemararod3272389-sp/IMwuZGs5eI7GuXy0bXz2ZwvprMIvR1.png"
-                  width={70}
-                  height={50}
-                  alt="Educação Profissional"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">
-                  Educação Profissional
-                </span>
-              </div>
-            </div>
-          </Link>
-
-          <Link
+            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/elianemararod3272389-sp/IMwuZGs5eI7GuXy0bXz2ZwvprMIvR1.png"
+            name="Educação Profissional"
+            alt="Educação Profissional"
+          />
+          <LinkPortal
             href="https://cursos.alura.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/Y6ZcJcrUQRv6ZeIN3uw3Bpb751VErX.png"
-                  width={70}
-                  height={50}
-                  alt="Alura"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">Alura</span>
-              </div>
-            </div>
-          </Link>
-
-          <Link
-            href="learn.corporate.ef.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/ymjt4ZTmCK2SAc6UNNNOVnwedAmcF8.png"
-                  width={70}
-                  height={50}
-                  alt="Speak"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">Speak</span>
-              </div>
-            </div>
-          </Link>
-
-          <Link
+            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/Y6ZcJcrUQRv6ZeIN3uw3Bpb751VErX.png"
+            name="Alura"
+            alt="Alura"
+          />
+          <LinkPortal
+            href="https://learn.corporate.ef.com"
+            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/ymjt4ZTmCK2SAc6UNNNOVnwedAmcF8.png"
+            name="Speak"
+            alt="Speak"
+          />
+          <LinkPortal
             href="https://livros.arvore.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl font-semibold text-gray-800"
-          >
-            <div className="w-full md:w-auto md:h-full bg-white/50 hover:bg-blue-900/50 hover:text-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/RbJxeFVGxD8ioStvVh3UvdJEgMQZWI.png"
-                  width={70}
-                  height={50}
-                  alt="LeiaSP"
-                  className="rounded-md"
-                />
-                <span className="truncate max-w-full text-wrap">LeiaSP</span>
-              </div>
-            </div>
-          </Link>
+            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/RbJxeFVGxD8ioStvVh3UvdJEgMQZWI.png"
+            name="LeiaSP"
+            alt="LeiaSP"
+          />
         </div>
       </div>
     </div>
