@@ -4,11 +4,9 @@ import Logo from "../shared/Logo";
 import LinksTab from "../comp_template/NavBarComp/LinksTab";
 import ButtonsLoginSignUp from "../comp_template/NavBarComp/ButtonsLoginSingUp";
 import { IconMenu2 } from "@tabler/icons-react";
-import { useUser } from "@/context/UserContext";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useUser(); // Obtemos o usuário diretamente do contexto
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

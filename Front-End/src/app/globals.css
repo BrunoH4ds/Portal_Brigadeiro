@@ -38,3 +38,10 @@ body::-webkit-scrollbar {
     @apply text-base  leading-relaxed;
   }
 }
+
+@layer components {
+  .Card::-webkit-scrollbar {
+    @apply hidden;
+  }
+}
+

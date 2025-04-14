@@ -56,6 +56,8 @@ export default function ButtonsTypeAccount({
       setUser(user);
       setIsLoggedIn(true);
       setIsAdmin(user.admin);
+      
+      // Redireciona para a página do usuário com base no seu tipo e ID
       router.push(`/${user.type}/${user._id}`);
     } else {
       setError("Email ou senha incorretos");

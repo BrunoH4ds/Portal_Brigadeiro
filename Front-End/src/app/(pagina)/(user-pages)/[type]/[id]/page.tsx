@@ -118,19 +118,32 @@ export default function StudentPage({ params }: StudentPageProps) {
           <h1 className="text-3xl font-bold text-gray-800 text-center">
             Dados Pessoais
           </h1>
-          {/* Condicionando a exibição do curso */}
-          {AccountOBJ && AccountOBJ.curso && (
-            <>
-              <h2 className="text-2xl font-semibold text-gray-800">Curso:</h2>
-              <p className="text-lg text-gray-700">{AccountOBJ.curso}</p>
-            </>
-          )}
 
           <h2 className="text-2xl font-semibold text-gray-800">Email:</h2>
           <p className="text-lg text-gray-700">{AccountOBJ.email}</p>
 
-          <h2 className="text-2xl font-semibold text-gray-800">Ra:</h2>
-          <p className="text-lg text-gray-700">{AccountOBJ.Ra}</p>
+          {AccountOBJ && (AccountOBJ.Ra || AccountOBJ.Rg) && (
+            <>
+              <h2 className="text-2xl font-semibold text-gray-800">
+                {AccountOBJ.Ra ? "Ra:" : "Rg:"}
+              </h2>
+              <p className="text-lg text-gray-700">
+                {AccountOBJ.Ra || AccountOBJ.Rg}
+              </p>
+            </>
+          )}
+
+          {/* Condicionando a exibição do curso */}
+          {AccountOBJ && (AccountOBJ.curso || AccountOBJ.materia) && (
+            <>
+              <h2 className="text-2xl font-semibold text-gray-800">
+                {AccountOBJ.curso ? "Curso:" : "Materia:"}
+              </h2>
+              <p className="text-lg text-gray-700">
+                {AccountOBJ.curso || AccountOBJ.materia}
+              </p>
+            </>
+          )}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <LinkPortal
