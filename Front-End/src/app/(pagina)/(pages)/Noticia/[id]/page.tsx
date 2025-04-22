@@ -1,5 +1,3 @@
-// /app/Noticea/[id]/page.tsx
-
 import React from "react";
 import NewsArray from "@/database/News";
 import Header from "@/components/optional/header";
@@ -13,7 +11,7 @@ export default function Notice({ params }: NoticePageProps) {
   const { id } = React.use(params); // Pegamos o 'id' diretamente de 'params'
 
   const NoticeOBJ = NewsArray.find(
-    (currentNoticeObj) => currentNoticeObj._id === id
+    (currentNoticeObj) => currentNoticeObj._id === parseInt(id)
   );
 
   if (!NoticeOBJ) {
@@ -25,7 +23,7 @@ export default function Notice({ params }: NoticePageProps) {
       <Header
         titulo={NoticeOBJ.title}
         image_URl={NoticeOBJ.image}
-        data={NoticeOBJ.date}
+        data={new Date(NoticeOBJ.date).toLocaleDateString()}
         author={NoticeOBJ.author}
       />
       <div className="flex mx-3 md:mx-12 mt-8">

@@ -1,5 +1,4 @@
 import { IconShieldCheck } from "@tabler/icons-react";
-import Link from "next/link";
 
 export default function PrivacyPolicyTab() {
   return (

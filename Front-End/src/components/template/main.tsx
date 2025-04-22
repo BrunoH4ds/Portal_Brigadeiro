@@ -14,11 +14,11 @@ export default function Main(props: MainProps) {
   return (
     <UserProvider>
       <TaskProvider>
-        <div className="flex flex-col flex-1 bg-blue-950">
+        <div className="relative flex flex-col flex-1 bg-blue-950">
           {props.semCabecalho ? null : <NavBar />}
 
           {/* Conteúdo */}
-          <main className="flex flex-1 min-h-screen min-w-screen justify-center items-center text-white">
+          <main className="flex flex-1 min-h-screen w-screen justify-center items-center text-white">
             {props.children}
           </main>
           {/* Rodapé */}

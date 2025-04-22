@@ -1,8 +1,8 @@
-import AboutSection from "@/components/comp_home/AboutSection";
-import Avaliation from "@/components/comp_home/Avaliation";
-import History from "@/components/comp_home/History";
-import Methodology from "@/components/comp_home/Methodology";
-import Teachers from "@/components/comp_home/Teachers";
+import AboutSection from "@/components/Page_Components/comp_home/AboutSection";
+import AvaliationCarousel from "@/components/Page_Components/comp_home/Avaliation/AvaliationCarousel";
+import History from "@/components/Page_Components/comp_home/History";
+import Methodology from "@/components/Page_Components/comp_home/Methodology";
+import Teachers from "@/components/Page_Components/comp_home/Teacher/TeachersSection";
 import Header from "@/components/optional/header";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <Methodology/>
         <History />
         <Teachers/>
-        <Avaliation/>
+        <AvaliationCarousel/>
       </div>
     </div>
   );

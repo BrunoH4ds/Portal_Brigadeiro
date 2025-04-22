@@ -29,30 +29,44 @@ interface UserContextType {
   logout: () => void;
 }
 
-const UserContext = createContext<UserContextType | undefined>(undefined);
+const UserContext = createContext<UserContextType & { isLoading: boolean } | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  // Tentando recuperar o usuário e o status de login do localStorage
-  const storedUser = localStorage.getItem("user");
-  const storedIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  const storedIsAdmin = localStorage.getItem("isAdmin") === "true";
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const [user, setUser] = useState<User | null>(storedUser ? JSON.parse(storedUser) : null);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(storedIsLoggedIn);
-  const [isAdmin, setIsAdmin] = useState<boolean>(storedIsAdmin);
 
   useEffect(() => {
-    // Armazenando os dados de login no localStorage sempre que o estado mudar
-    if (isLoggedIn && user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
-    } else {
-      localStorage.clear();
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      const storedIsLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      const storedIsAdmin = localStorage.getItem("isAdmin") === "true";
+  
+      if (storedUser && storedIsLoggedIn) {
+        setUser(JSON.parse(storedUser));
+        setIsLoggedIn(storedIsLoggedIn);
+        setIsAdmin(storedIsAdmin);
+      }
+  
+      setIsLoading(false); // <- sinaliza que terminou de carregar
+    }
+  }, []);  
+
+  // Atualizar localStorage quando o estado mudar
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (isLoggedIn && user) {
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
+      } else {
+        localStorage.clear();
+      }
     }
   }, [isLoggedIn, user, isAdmin]);
 
-  // Função de logout
   const logout = () => {
     setUser(null);
     setIsLoggedIn(false);
@@ -61,7 +75,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, isLoggedIn, isAdmin, setUser, setIsLoggedIn, setIsAdmin, logout }}>
+    <UserContext.Provider value={{ user, isLoggedIn, isAdmin, setUser, setIsLoggedIn, setIsAdmin, logout, isLoading }}>
       {children}
     </UserContext.Provider>
   );

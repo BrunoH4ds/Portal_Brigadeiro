@@ -1,3 +1,4 @@
+import FaqInfoBlock from "@/components/Page_Components/comp_faq/FaqInfoBlock";
 import { IconPhone } from "@tabler/icons-react";
 
 export default function Contato() {
@@ -10,18 +11,24 @@ export default function Contato() {
         </h1>
       </div>
 
-      <div className="bg-white/50 p-6 rounded-lg shadow-md mb-8 space-y-4">
-        <h2 className="text-2xl font-semibold text-gray-800">Telefone</h2>
-        <p className="text-lg text-gray-700">+55 11 3971-2787</p>
+      <div className="flex flex-col justify-center bg-white/50 p-6 rounded-lg shadow-md mb-8">
+        <FaqInfoBlock
+          isContato
+          title="Telefone"
+          description="+55 11 3971-2787"
+        />
 
-        <h2 className="text-2xl font-semibold text-gray-800">Email</h2>
-        <p className="text-lg text-gray-700">contato@gmail.com</p>
+        <FaqInfoBlock
+          isContato
+          title="Email"
+          description="contato@gmail.com"
+        />
 
-        <h2 className="text-2xl font-semibold text-gray-800">Endereço</h2>
-        <p className="text-lg text-gray-700">
-          R. João Amado Coutinho, 1010 - Conj. Res. Elisio Teixeira Leite, São
-          Paulo - SP, 02815-140
-        </p>
+        <FaqInfoBlock
+          isContato
+          title="Endereço"
+          description="R. João Amado Coutinho, 1010 - São Paulo - SP"
+        />
       </div>
 
       <div className="relative w-full h-96 rounded-lg overflow-hidden shadow-lg">

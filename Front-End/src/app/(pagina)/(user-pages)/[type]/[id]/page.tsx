@@ -1,189 +1,39 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { UsersArrayAluno } from "@/database/UsersArrayAluno"; // Importando array de alunos
-import { UsersArrayProfessor } from "@/database/UsersArrayProfessor"; // Importando array de professores
+import React from "react";
+import { UsersArrayAluno } from "@/database/UsersArrayAluno";
+import { UsersArrayProfessor } from "@/database/UsersArrayProfessor";
 import { useUser } from "@/context/UserContext";
-import { useRouter } from "next/navigation";
-import { IconUser } from "@tabler/icons-react";
-import LinkPortal from "@/components/comp_user/LinkPortal";
-import Link from "next/link";
-import Loading from "@/components/optional/Loading";
+import ProtectedRoute from "@/components/Protection/ProtectedRoute";
 import NotFoundError from "@/components/optional/NotFoundError";
+import UserSidebar from "@/components/Page_Components/comp_user/UserSidebar";
+import UserInfoCard from "@/components/Page_Components/comp_user/UserInfoCard";
+import UserLinksGrid from "@/components/Page_Components/comp_user/UserLinksGrid";
 
 interface StudentPageProps {
   params: { id: string; type: string };
 }
 
 export default function StudentPage({ params }: StudentPageProps) {
-  const { id, type } = React.use(params); // Aqui aguardamos a resolução dos params
-  const { logout, isAdmin, isLoggedIn } = useUser(); // Obtemos o usuário diretamente do contexto
-  const router = useRouter();
+  const { id, type } = React.use(params);
+  const { logout } = useUser();
 
-  let AccountOBJ: any = null;
+  const AccountOBJ =
+    type === "Aluno"
+      ? UsersArrayAluno.find((a) => a._id === parseInt(id))
+      : UsersArrayProfessor.find((p) => p._id === parseInt(id));
 
-  // Certifique-se de que o 'id' seja convertido para o tipo correto se necessário
-  if (type === "Aluno") {
-    // Filtra o usuário no array de alunos
-    AccountOBJ = UsersArrayAluno.find(
-      (currentAccountOBJ) => currentAccountOBJ._id === parseInt(id) // Comparação correta com o tipo correto
-    );
-  } else if (type === "Professor") {
-    // Filtra o usuário no array de professores
-    AccountOBJ = UsersArrayProfessor.find(
-      (currentAccountOBJ) => currentAccountOBJ._id === parseInt(id) // Comparação correta com o tipo correto
-    );
-  }
-
-  // Se o AccountOBJ não existir, exibe o NotFoundError
-  if (!AccountOBJ) {
-    return <NotFoundError />;
-  }
-
-  useEffect(() => {
-    // Só faz a navegação após a renderização
-    if (!isLoggedIn) {
-      // Redireciona para a página do usuário
-      router.push("/Entrar");
-    }
-  }, [isLoggedIn, router]); // Apenas dispara quando a login estiver alterado
-
-  if (!isLoggedIn) {
-    return <Loading />; // Exibe o Loading enquanto o login não estiver validado
-  }
-
-  // Lógica de logout
-  const handleLogout = () => {
-    logout(); // Limpa o estado do usuário no contexto
-  };
+  if (!AccountOBJ) return <NotFoundError />;
 
   return (
-    <div className="flex-col lg:flex-row flex-1 mt-28 mb-8 mx-3 gap-8 lg:gap-0 p-8 lg:p-0 lg:mx-12 bg-white/50 rounded-lg shadow-xl flex">
-      {/* Barra lateral com nome e botão Sair */}
-      <div className="w-full lg:w-1/4 lg:p-6 border-0 lg:border-r border-white/50 transition-all duration-300 ease-in-out">
-        {/* Ícone do usuário */}
-        <div className="flex flex-col justify-center h-full">
-          <div className="flex flex-col items-center justify-center">
-            <div className="relative">
-              <span className="flex justify-center items-center">
-                <IconUser
-                  size={70}
-                  className="text-blue-800 w-50 h-auto bg-white/50 rounded-full p-3"
-                />
-                {AccountOBJ && AccountOBJ.turma && (
-                  <p className="absolute right-9 bottom-5 text-5xl font-semibold bg-white/50 backdrop-blur-md text-gray-800 rounded-full p-2 translate-x-1/2 translate-y-1/2">
-                    {AccountOBJ.turma}
-                  </p>
-                )}
-              </span>
-            </div>
-
-            {/* Nome do usuário */}
-            <h1 className="text-3xl font-bold text-gray-800 text-center mt-5">
-              {AccountOBJ.name}
-            </h1>
-            <p className="text-2xl font-bold text-blue-800 text-center mb-6">
-              {type}
-            </p>
-          </div>
-
-          <div className="flex flex-col justify-end">
-            {isAdmin && isLoggedIn && (
-              <Link
-                href="/Admin"
-                className="text-xl text-gray-800 bg-blue-800 hover:bg-blue-700 cursor-pointer py-2 px-6 text-white rounded-md w-full mt-4 transition-all duration-300 ease-in-out"
-              >
-                <div className="flex justify-center items-center gap-2">
-                  Administração
-                </div>
-              </Link>
-            )}
-
-            {/* Botão de logout */}
-            {isLoggedIn && (
-              <button
-                className="bg-red-700 hover:bg-red-600 cursor-pointer py-2 px-6 text-white rounded-md w-full mt-4 transition-all duration-300 ease-in-out"
-                onClick={handleLogout}
-              >
-                Sair
-              </button>
-            )}
-          </div>
+    <ProtectedRoute expectedId={id} expectedType={type}>
+      <div className="flex-col lg:flex-row flex-1 mt-28 mb-8 mx-3 gap-8 lg:gap-0 p-8 lg:p-0 lg:mx-12 bg-white/50 rounded-lg shadow-xl flex">
+        <UserSidebar user={AccountOBJ} type={type} handleLogout={logout} />
+        <div className="flex flex-1 flex-col lg:m-8 gap-8">
+          <UserInfoCard user={AccountOBJ} />
+          <UserLinksGrid />
         </div>
       </div>
-
-      {/* Informações do usuário à direita */}
-      <div className="flex flex-1 flex-col lg:m-8 gap-8">
-        <div className="bg-white/50 p-6 rounded-lg shadow-md space-y-4">
-          <h1 className="text-3xl font-bold text-gray-800 text-center">
-            Dados Pessoais
-          </h1>
-
-          <h2 className="text-2xl font-semibold text-gray-800">Email:</h2>
-          <p className="text-lg text-gray-700">{AccountOBJ.email}</p>
-
-          {AccountOBJ && (AccountOBJ.Ra || AccountOBJ.Rg) && (
-            <>
-              <h2 className="text-2xl font-semibold text-gray-800">
-                {AccountOBJ.Ra ? "Ra:" : "Rg:"}
-              </h2>
-              <p className="text-lg text-gray-700">
-                {AccountOBJ.Ra || AccountOBJ.Rg}
-              </p>
-            </>
-          )}
-
-          {/* Condicionando a exibição do curso */}
-          {AccountOBJ && (AccountOBJ.curso || AccountOBJ.materia) && (
-            <>
-              <h2 className="text-2xl font-semibold text-gray-800">
-                {AccountOBJ.curso ? "Curso:" : "Materia:"}
-              </h2>
-              <p className="text-lg text-gray-700">
-                {AccountOBJ.curso || AccountOBJ.materia}
-              </p>
-            </>
-          )}
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <LinkPortal
-            href="https://saladofuturo.educacao.sp.gov.br"
-            image="https://images.sftcdn.net/images/t_app-icon-m/p/9ba2a0a6-dd15-4dcf-a5bb-9edba5d219ff/3011115403/sala-do-futuro-professor-logo"
-            name="Sala Do Futuro"
-            alt="Sala Do Futuro"
-          />
-          <LinkPortal
-            href="https://cmspweb.ip.tv"
-            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/pc5HVEaryskRc7tqNGZ0ZhlMscseYU.png"
-            name="Cmsp"
-            alt="Cmsp"
-          />
-          <LinkPortal
-            href="https://educacaoprofissional.educacao.sp.gov.br"
-            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/elianemararod3272389-sp/IMwuZGs5eI7GuXy0bXz2ZwvprMIvR1.png"
-            name="Educação Profissional"
-            alt="Educação Profissional"
-          />
-          <LinkPortal
-            href="https://cursos.alura.com.br"
-            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/Y6ZcJcrUQRv6ZeIN3uw3Bpb751VErX.png"
-            name="Alura"
-            alt="Alura"
-          />
-          <LinkPortal
-            href="https://learn.corporate.ef.com"
-            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/ymjt4ZTmCK2SAc6UNNNOVnwedAmcF8.png"
-            name="Speak"
-            alt="Speak"
-          />
-          <LinkPortal
-            href="https://livros.arvore.com.br"
-            image="https://s3.sa-east-1.amazonaws.com/edusp-static.ip.tv/room/cards/edusp/julianasanche3225895-sp/RbJxeFVGxD8ioStvVh3UvdJEgMQZWI.png"
-            name="LeiaSP"
-            alt="LeiaSP"
-          />
-        </div>
-      </div>
-    </div>
+    </ProtectedRoute>
   );
 }

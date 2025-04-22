@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Logo from "../shared/Logo";
-import FooterNavLinks from "../comp_template/footerComp/FooterNavLinks";
-import Social from "../comp_template/footerComp/Social";
+import FooterNavLinks from "../Page_Components/comp_template/footerComp/FooterNavLinks";
+import Social from "../Page_Components/comp_template/footerComp/Social";
 import { IconMapPin, IconPhoneCall } from "@tabler/icons-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <section className="flex flex-col items-center bg-white/50 text-black rounded-t-md  p-5 backdrop-blur-md">
+      <section className="flex flex-col items-center bg-white/50 text-black p-5 backdrop-blur-md">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 px-5">
           <Logo logo={false} width={180} />
           {/* Links de Navegação */}
@@ -41,19 +41,23 @@ export default function Footer() {
             </p>
           </div>
         </div>
-        <div className="border border-black/30 my-5 w-3/4"/>
+        <hr className="border-black/30 my-5 w-3/4" />
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 px-5">
           <div className="flex items-center gap-2">
             <IconMapPin size={40} />
-            <Link href="https://maps.app.goo.gl/K6dbV9aZV2KkhyGE9" target="_blank" rel="noopener noreferrer" className="text-sm underline">
-              R. João Amado Coutinho, 1010 - Conj. Res. Elisio Teixeira Leite, São Paulo - SP, 02815-140
+            <Link
+              href="https://maps.app.goo.gl/K6dbV9aZV2KkhyGE9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm underline"
+            >
+              R. João Amado Coutinho, 1010 - Conj. Res. Elisio Teixeira Leite,
+              São Paulo - SP, 02815-140
             </Link>
           </div>
           <div className="flex items-center gap-2">
             <IconPhoneCall size={40} />
-            <p className="text-sm">
-              +55 11 3971-2787
-            </p>
+            <p className="text-sm">+55 11 3971-2787</p>
           </div>
         </div>
       </section>
