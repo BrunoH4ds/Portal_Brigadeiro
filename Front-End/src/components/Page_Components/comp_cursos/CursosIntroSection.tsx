@@ -21,7 +21,7 @@ export default function CursosIntroSection({
   selecionarCurso,
 }: CursosIntroSectionProps) {
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center py-20 px-6 text-white bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center py-20 px-6 text-white overflow-hidden">
       {/* Ícones de fundo */}
       <IconDeviceLaptop className="absolute top-10 left-10 w-32 h-32 text-white/10" />
       <IconTruckDelivery className="absolute top-40 right-16 w-28 h-28 text-white/10" />

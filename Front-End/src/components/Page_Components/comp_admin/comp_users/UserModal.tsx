@@ -6,7 +6,7 @@ import { IconX } from "@tabler/icons-react";
 interface Props {
   isOpen: boolean;
   closeModal: () => void;
-  user?: any; // undefined para novo, objeto para edição
+  user?: any;
   isEditing: boolean;
 }
 
@@ -27,7 +27,8 @@ export default function UserModal({
   const [materia, setMateria] = useState("");
   const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
-
+  
+  //efeito de preencher os dados no input ou nao
   useEffect(() => {
     if (user) {
       setName(user.name || "");
@@ -45,6 +46,7 @@ export default function UserModal({
     }
   }, [user]);
 
+  //Funcao para resetar o formulario
   const resetForm = () => {
     setName("");
     setEmail("");
@@ -59,6 +61,7 @@ export default function UserModal({
     setError("");
   };
 
+  //Funcao para validar
   const validateForm = () => {
     if (!name || !email || !password) {
       setError("Preencha todos os campos obrigatórios.");
@@ -74,11 +77,11 @@ export default function UserModal({
       setError("Informe a matéria do professor.");
       return false;
     }
-
     setError("");
     return true;
   };
 
+  //Funcao para criar ou editar
   const handleSubmit = () => {
     if (!validateForm()) return;
 
@@ -94,26 +97,26 @@ export default function UserModal({
       curso: type === "Aluno" ? curso : undefined,
       materia: type === "Professor" ? materia : undefined,
     };
-
     if (isEditing) {
       console.log("Atualizando usuário:", data);
+      //enviar as informações para o banco de dados (editado)
     } else {
       console.log("Criando novo usuário:", data);
+      //enviar as informações para o banco de dados (Criado)
     }
 
     closeModal();
   };
-
+  //Funcao para deletar usuario
   const handleDelete = () => {
-    console.log("removendo Usuario", user._id)
+    //enviar as informações para o banco de dados (remover)
+    console.log("removendo Usuario", user._id);
     closeModal();
-  }
-
-  if (!isOpen) return null;
+  };
 
   return (
-    <div className="fixed inset-0 z-50 p-5 flex items-center justify-center backdrop-blur-md bg-black/30">
-      <div className="bg-white/80 text-black Card rounded-lg shadow-lg p-6 w-[90%] max-w-md max-h-full overflow-y-auto relative">
+    isOpen && (
+      <div className="bg-white/50 text-black p-6 rounded-lg shadow-md">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-lg font-semibold">
             {isEditing ? "Editar Usuário" : "Adicionar Usuário"}
@@ -261,24 +264,24 @@ export default function UserModal({
           <button
             onClick={handleSubmit}
             className="mt-2 cursor-pointer bg-green-600 hover:bg-green-700 text-white py-2 rounded"
-            >
+          >
             {isEditing ? "Salvar Alterações" : "Adicionar Usuário"}
           </button>
 
-            {isEditing && (
-              <button
+          {isEditing && (
+            <button
               onClick={handleDelete}
               className="mt-2 cursor-pointer bg-red-600 hover:bg-red-700 text-white py-2 rounded"
             >
               Remover Usuario
             </button>
-            )}
+          )}
 
           {error && (
             <p className="text-center text-red-600 text-sm mt-1">{error}</p>
           )}
         </div>
       </div>
-    </div>
+    )
   );
 }

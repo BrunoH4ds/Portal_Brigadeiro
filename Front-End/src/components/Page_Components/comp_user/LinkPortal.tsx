@@ -8,8 +8,7 @@ export interface LinkPortal {
   name: string;
 }
 
-
-export default function LinkPortal({href, alt, name, image}: LinkPortal) {
+export default function LinkPortal({ href, alt, name, image }: LinkPortal) {
   return (
     <div>
       <Link
@@ -27,9 +26,7 @@ export default function LinkPortal({href, alt, name, image}: LinkPortal) {
               alt={alt}
               className="rounded-md"
             />
-            <span className="truncate max-w-full text-wrap">
-              {name}
-            </span>
+            <span className="truncate max-w-full text-wrap">{name}</span>
           </div>
         </div>
       </Link>

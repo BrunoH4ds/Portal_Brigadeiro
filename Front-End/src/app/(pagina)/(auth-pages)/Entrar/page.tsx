@@ -1,4 +1,4 @@
-import InputsCadAndLogin from "@/components/Page_Components/comp_login/InputsCadAndLogin";
+import InputsLogin from "@/components/Page_Components/comp_login/InputsLogin";
 import RedirectIfLoggedIn from "@/components/Protection/RedirectIfLoggedIn";
 import Image from "next/image";
 
@@ -16,8 +16,9 @@ export default function Login() {
             da instituição
           </p>
           <div className="my-2 w-5/6 border-b border-black/30" />
+          {/* Inputs para login */}
           <div className="flex flex-col justify-center items-center w-full">
-            <InputsCadAndLogin />
+            <InputsLogin />
           </div>
         </div>
       </div>

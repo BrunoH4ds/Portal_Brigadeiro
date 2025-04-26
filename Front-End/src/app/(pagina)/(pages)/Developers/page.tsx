@@ -6,13 +6,14 @@ import { IconBrandGithub, IconBrandInstagram, IconBrandLinkedin } from "@tabler/
 
 export default function Developers() {
   return (
-    <div className="flex flex-col bg-white/50 text-black min-h-screen">
+    <div className="flex flex-col bg-white/50 backdrop-blur-md text-black min-h-screen">
       <Header
         titulo="Desenvolvedores"
         image_URl="https://www.michaelpage.com.au/sites/michaelpage.com.au/files/2022-01/Software%20Developer.jpg"
       />
 
       <main className="px-4 py-8 sm:px-8 md:px-16 lg:px-24 xl:px-32">
+        {/* Info da pagina */}
         <div className="text-center mb-12">
           <SectionDescription
             title="Equipe de Desenvolvimento"
@@ -20,6 +21,7 @@ export default function Developers() {
           />
         </div>
 
+        {/* Desenvolvedores */}
         <div className="space-y-12">
           {/** João Silva */}
           <div className="transition duration-300 hover:scale-[1.02]">

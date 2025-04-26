@@ -35,7 +35,7 @@ export default function NewsCarousel() {
         {randomNews.map((news) => (
           <div key={news._id} className="min-w-full px-4">
             <Link href={`/Noticia/${news._id}`}>
-              <div className="relative flex flex-col justify-end items-center p-5 bg-[#1313138f] backdrop-blur-lg rounded-md hover:bg-blue-900 transition-all duration-300 w-auto h-96 cursor-pointer">
+              <div className="relative flex flex-col justify-end items-center shadow-md p-5 bg-[#1313138f] backdrop-blur-lg rounded-md hover:bg-blue-900 transition-all duration-300 w-auto h-96 cursor-pointer">
                 <Image
                   src={news.image}
                   alt={news.title}
@@ -61,13 +61,13 @@ export default function NewsCarousel() {
       {/* Navegação */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-blue-800 cursor-pointer text-white p-2 rounded-full hover:bg-blue-700 transition-all"
+        className="absolute shadow-md left-2 top-1/2 transform -translate-y-1/2 bg-blue-800 cursor-pointer text-white p-2 rounded-full hover:bg-blue-700 transition-all"
       >
         <IconArrowBadgeLeftFilled size={38} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-800 cursor-pointer text-white p-2 rounded-full hover:bg-blue-700 transition-all"
+        className="absolute shadow-md right-2 top-1/2 transform -translate-y-1/2 bg-blue-800 cursor-pointer text-white p-2 rounded-full hover:bg-blue-700 transition-all"
       >
         <IconArrowBadgeRightFilled size={38} />
       </button>

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import ButtonsTypeAccount from "./ButtonsTypeAccount";
 
-export default function InputsCadAndLogin() {
+export default function InputsLogin() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   
@@ -25,6 +25,7 @@ export default function InputsCadAndLogin() {
         onChange={(e) => setPassword(e.target.value)}
         type="password"
       />
+      {/* Botoes para definir tipo de usuário */}
       <ButtonsTypeAccount
         email={email}
         password={password}

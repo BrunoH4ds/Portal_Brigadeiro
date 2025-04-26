@@ -2,7 +2,7 @@ import { IconShieldCheck } from "@tabler/icons-react";
 
 export default function PrivacyPolicyTab() {
   return (
-    <div className="flex-1 mt-28 mb-8 mx-3 md:mx-12 bg-white/50 p-8 rounded-lg shadow-xl">
+    <div className="flex-1 mt-28 mb-8 mx-3 md:mx-12 bg-white/50 backdrop-blur-md p-8 rounded-lg shadow-xl">
       <div className="flex flex-col items-center text-blue-800 justify-center mb-6">
         <IconShieldCheck size={70} className="mb-1" />
         <h1 className="text-5xl font-bold text-center">

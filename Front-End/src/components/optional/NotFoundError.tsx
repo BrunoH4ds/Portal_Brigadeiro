@@ -7,7 +7,7 @@ interface ErrorPageProps {
 
 export default function ErrorPage({ accessDenied = false }: ErrorPageProps) {
   return (
-    <div className="flex justify-center items-center rounded-md bg-white/50 text-gray-800 mt-28 mb-8 mx-8">
+    <div className="flex justify-center items-center rounded-md bg-white/50 backdrop-blur-md text-gray-800 mt-28 mb-8 mx-8">
       <div className="flex flex-col md:flex-row items-center p-8 justify-center">
         <IconX size={150} className="text-red-800" />
         <div className="flex flex-col text-center items-center">

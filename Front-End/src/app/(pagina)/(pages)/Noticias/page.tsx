@@ -11,6 +11,7 @@ export default function NewsPage() {
   const [filteredNews, setFilteredNews] = useState(NewsArray);
   const [viewMode, setViewMode] = useState<"recent" | "all">("recent");
 
+  // efeito de exibição para exibir as 6 noticias mais recentes caso contrario exibe todas
   useEffect(() => {
     if (viewMode === "recent") {
       const sorted = [...NewsArray].sort(
@@ -22,6 +23,7 @@ export default function NewsPage() {
     }
   }, [viewMode]);
 
+  // função para filtrar de acordo com a pesquisa do Usuario
   const handleSearch = (term: string) => {
     const results = NewsArray.filter((news) =>
       news.title.toLowerCase().includes(term.toLowerCase())
@@ -30,7 +32,7 @@ export default function NewsPage() {
   };
 
   return (
-    <div className="flex flex-col mt-28 mb-8 mx-3 md:mx-12 bg-white/50 p-4 md:p-8 rounded-lg shadow-xl overflow-x-hidden">
+    <div className="flex flex-col mt-28 mb-8 mx-3 md:mx-12 bg-white/50 backdrop-blur-md p-4 md:p-8 rounded-lg shadow-xl overflow-x-hidden">
       <div className="flex flex-col items-center text-blue-800 justify-center mb-6">
         <IconNews size={70} />
         <h1 className="text-5xl font-bold text-center">Notícias</h1>
@@ -38,10 +40,11 @@ export default function NewsPage() {
           Aqui você encontra algumas Noticias Sobre nossa escola.
         </p>
       </div>
-
+      {/* Carrossel de noticias */}
       <NewsCarousel />
 
       <div className="flex flex-col justify-between items-center my-6 gap-4">
+        {/* Botoes para filtrar noticia */}
         <div className="flex gap-3 w-full">
           <button
             onClick={() => setViewMode("recent")}
@@ -64,9 +67,10 @@ export default function NewsPage() {
             Ver Todas
           </button>
         </div>
+        {/* barra de pesquisa */}
         <SearchBar onSearch={handleSearch} />
       </div>
-
+        {/* Lista de Noticias */}
       <NewsList items={filteredNews} />
     </div>
   );

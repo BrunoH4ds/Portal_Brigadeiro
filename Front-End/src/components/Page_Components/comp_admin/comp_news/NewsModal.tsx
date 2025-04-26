@@ -27,10 +27,12 @@ export default function NewsModal({
   editingId,
   message,
 }: Props) {
+  
+  //colocar as funcoes de adicionar ou editar e remover
+
   return (
     showModal && (
-      <div className="fixed inset-0 z-50 p-5 flex items-center justify-center backdrop-blur-md bg-black/30">
-        <div className="bg-white/80 text-black Card rounded-lg shadow-lg p-6 w-[90%] max-w-md max-h-full overflow-y-auto relative">
+        <div className="bg-white/50 text-black p-6 rounded-lg shadow-md">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-lg font-semibold">
               {editingId ? "Editar Notícia" : "Nova Notícia"}
@@ -166,7 +168,6 @@ export default function NewsModal({
             )}
           </div>
         </div>
-      </div>
     )
   );
 }

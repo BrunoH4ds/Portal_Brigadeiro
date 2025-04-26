@@ -21,9 +21,8 @@ export default function Logo({
           <Image
             src="/Logo.png"
             alt="Logo"
-            layout="intrinsic" // Faz com que a imagem tenha suas dimensões automáticas
-            width={width} // Defina um valor para a largura para que o layout "intrinsic" funcione
-            height={height} // A altura será ajustada automaticamente com base na proporção
+            width={width}
+            height={height}
             draggable={false}
           />
         </div>
@@ -33,9 +32,8 @@ export default function Logo({
           <Image
             src="/Logo_Fitness.png"
             alt="Logo"
-            layout="intrinsic" // Faz com que a imagem tenha suas dimensões automáticas
-            width={width} // Defina um valor para a largura para que o layout "intrinsic" funcione
-            height={height} // A altura será ajustada automaticamente com base na proporção
+            width={width}
+            height={height}
             draggable={false}
           />
         </div>

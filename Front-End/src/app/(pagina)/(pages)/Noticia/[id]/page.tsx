@@ -8,12 +8,13 @@ interface NoticePageProps {
 }
 
 export default function Notice({ params }: NoticePageProps) {
-  const { id } = React.use(params); // Pegamos o 'id' diretamente de 'params'
+  const { id } = React.use(params);
 
+  // encontra a noticia na lista de noticias por id
   const NoticeOBJ = NewsArray.find(
     (currentNoticeObj) => currentNoticeObj._id === parseInt(id)
   );
-
+  // se nao encontrar exibe mensagem de erro
   if (!NoticeOBJ) {
     return <NotFoundError/>;
   }
@@ -28,7 +29,7 @@ export default function Notice({ params }: NoticePageProps) {
       />
       <div className="flex mx-3 md:mx-12 mt-8">
         <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
-          <div className="flex flex-col p-5 bg-white/50 rounded-md justify-end w-full">
+          <div className="flex flex-col p-5 bg-white/50 backdrop-blur-md rounded-md justify-end w-full">
             {NoticeOBJ.content.map((section, index) => (
               <div key={index}>
                 {/* Título */}

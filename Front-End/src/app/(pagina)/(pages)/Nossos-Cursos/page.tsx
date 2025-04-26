@@ -11,7 +11,9 @@ export default function Cursos() {
   const [cursoSelecionado, setCursoSelecionado] = useState(null);
   const cursoRef = useRef(null); // ref para scroll
 
+  // Função para selecionar curso
   const selecionarCurso = (cursoId) => {
+    // Função para encontrar o curso na lista de cursos
     const curso = CursosArray.find((curso) => curso.id === cursoId);
     setCursoSelecionado(curso);
 
@@ -30,7 +32,7 @@ export default function Cursos() {
         selecionarCurso={selecionarCurso}
       />
 
-      {/* Conteúdo Dinâmico com ref para scroll suave */}
+      {/* Conteúdo Dinâmico/Exibição do Curso selecionado */}
       {cursoSelecionado && (
         <section
           ref={cursoRef}
@@ -42,7 +44,7 @@ export default function Cursos() {
             image_URl={cursoSelecionado.HeaderImageSrc}
           />
           <div className="flex flex-col w-full justify-between sm:flex-col sm:items-center md:flex-row md:items-stretch">
-            <div className="flex flex-col items-center p-5 bg-white/50 rounded-md justify-end w-full mb-8 md:mx-12 mt-8">
+            <div className="flex flex-col items-center p-5 bg-white/50 backdrop-blur-md rounded-md justify-end w-full mb-8 md:mx-12 mt-8">
               {cursoSelecionado.sections.map((section, index) => (
                 <SectionDescription
                   key={index}

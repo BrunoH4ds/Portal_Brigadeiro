@@ -2,7 +2,6 @@ import { UserProvider } from "@/context/UserContext";
 import Footer from "./footer";
 import NavBar from "./navBar";
 import { TaskProvider } from "@/context/TaskContext";
-
 export interface MainProps {
   children: any;
   className?: string;
@@ -14,7 +13,10 @@ export default function Main(props: MainProps) {
   return (
     <UserProvider>
       <TaskProvider>
-        <div className="relative flex flex-col flex-1 bg-blue-950">
+        <div
+          className="relative flex flex-col flex-1 bg-blue-950 bg-cover bg-center"
+          style={{ backgroundImage: `url("/BG.png")` }}
+        >
           {props.semCabecalho ? null : <NavBar />}
 
           {/* Conteúdo */}

@@ -11,7 +11,7 @@ export default function MainAdmin(props: MainAdminProps) {
       <div className="flex flex-col md:flex-row flex-1 h-full w-full mt-28 mb-8 md:gap-0">
         <SideBar />
         <div className="flex flex-1 flex-col md:mx-8 gap-8">
-          <div className="p-6 bg-white/50 shadow-md rounded-md">
+          <div className="p-6 bg-white/50 backdrop-blur-md shadow-md rounded-md">
             {props.children}
           </div>
         </div>

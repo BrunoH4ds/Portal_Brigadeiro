@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function SideBar() {
   return (
     <div className="flex flex-col items-center w-full mb-8 md:w-1/5 md:pl-8 transition-all duration-300 ease-in-out">
-      <div className="flex flex-col w-full md:w-auto items-center bg-white/50 shadow-md rounded-md">
+      <div className="flex flex-col w-full md:w-auto items-center bg-white/50 backdrop-blur-md shadow-md rounded-md">
         <h1 className="text-xl bg-blue-900 w-full text-center p-2 rounded-t-md font-semibold">
           Painel de Administração
         </h1>
