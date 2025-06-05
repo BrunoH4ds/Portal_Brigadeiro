@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       "cdn.pixabay.com",
       "s3.sa-east-1.amazonaws.com",
       "images.sftcdn.net",
+      "images.pexels.com",
     ],
   },
 };

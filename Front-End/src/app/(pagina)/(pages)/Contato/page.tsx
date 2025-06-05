@@ -20,14 +20,14 @@ export default function Contato() {
 
         <FaqInfoBlock
           isContato
-          title="Email"
-          description="contato@gmail.com"
+          title="Whatsapp"
+          description="+55 11 97564-7132"
         />
 
         <FaqInfoBlock
           isContato
           title="Endereço"
-          description="R. João Amado Coutinho, 1010 - São Paulo - SP"
+          description="R. João Amado Coutinho, 1010 - Conj. Res. Elisio Teixeira Leite, São Paulo - SP, 02815-140"
         />
       </div>
       {/* Mapa Google c/Localização */}

@@ -28,8 +28,13 @@ export default function Faq() {
             />
             <FaqInfoBlock
               title="Quais cursos a Escola Estadual Brigadeiro Eduardo Gomes oferece?"
-              description="Até o momento são 2 cursos técnicos, exclusivos para o ensino médio (Educação Profissional)."
+              description="Até o momento são 3 cursos técnicos, exclusivos para o ensino médio (Educação Profissional)."
             />
+            <FaqInfoBlock
+              title="A Escola Estadual Brigadeiro Eduardo Gomes é integral?"
+              description= "Até o momento, temos dois horários: manhã (não integral, do 6º ano do Ensino Fundamental ao 1º ano do Ensino Médio) e tarde (integral, do 2º ao 3º ano do Ensino Médio)."
+            />
+            
           </div>
         </div>
       </div>
