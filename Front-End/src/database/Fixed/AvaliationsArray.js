@@ -2,7 +2,7 @@
 const AvaliationsArray = [
   {
     id: 1,
-    name: "Lucas Oliveira",
+    name: "Lucas Queiroz",
     image: "/home/students/student1.png",
     rating: 5,
     texts: [
@@ -13,7 +13,7 @@ const AvaliationsArray = [
   {
     id: 2,
     name: "Maria Souza",
-    image: "/home/students/student2.png",
+    image: "/home/students/interrogation.png",
     rating: 4,
     texts: [
       "Eu gostei muito da escola porque os professores sempre foram atenciosos e explicaram tudo de forma clara. A metodologia usada me ajudou a entender bem os conteúdos. Além disso, tive acesso a equipamentos modernos que me permitiram simular situações reais do mercado, o que foi essencial para meu aprendizado."
@@ -22,7 +22,7 @@ const AvaliationsArray = [
   {
     id: 3,
     name: "Lucas Almeida",
-    image: "/home/students/student3.png",
+    image: "/home/students/interrogation.png",
     rating: 3,
     texts: [
       "Gostei bastante da escola pelo ambiente acolhedor e pelo apoio constante dos profissionais. Me senti valorizado e motivado durante todo o curso. Agora que estou finalizando, sinto que estou realmente pronto para começar minha carreira profissional com segurança."

@@ -27,53 +27,37 @@ export default function Developers() {
           <div className="transition duration-300 hover:scale-[1.02]">
             <ImageTextSection
               background
-              imageSrc="/home/students/student1.png"
-              imageAlt="João Silva"
-              title="João Silva - Frontend Developer"
-              description="Responsável pela criação de interfaces modernas, navegação intuitiva e design responsivo. João tem paixão por transformar ideias em experiências visuais memoráveis."
+              imageSrc="/dev/dev5.png"
+              imageAlt="Bruno Henrique"
+              title="Bruno Henrique - Front-end Developer"
+              description="Responsável pela criação das interfaces, navegação intuitiva e design responsivo. tenho paixão por transformar ideias em experiências visuais memoráveis."
               extraContent={
                 <div className="flex flex-wrap gap-3">
                   <IconButton
                     label="GitHub"
-                    url="https://github.com/joaosilva"
+                    url="https://github.com/BrunoH4ds"
                     icon={<IconBrandGithub size={20} />}
                     variant="github"
                     newTab
                   />
-                  <IconButton
-                    label="Instagram"
-                    url="https://github.com/joaosilva"
-                    icon={<IconBrandInstagram size={25} />}
-                    variant="instagram"
-                    newTab
-                  />
-                  <IconButton
-                    label="Linkedin"
-                    url="https://github.com/joaosilva"
-                    icon={<IconBrandLinkedin size={25} />}
-                    variant="linkedin"
-                    newTab
-                  />
-                  
                 </div>
               }
             />
           </div>
 
-          {/** Ana Costa */}
           <div className="transition duration-300 hover:scale-[1.02]">
             <ImageTextSection
               background
               reverse
-              imageSrc="/home/students/student1.png"
-              imageAlt="Ana Costa"
-              title="Ana Costa - Backend Developer"
-              description="Especialista em APIs, bancos de dados e integração de sistemas. Ana foi a mente por trás da infraestrutura que garante a estabilidade e performance do projeto."
+              imageSrc="/Dev/dev3.png"
+              imageAlt="Isaias Ribeiro"
+              title="Isaias Ribeiro - Back-end Developer"
+              description="Especialista em APIs, bancos de dados e integração de sistemas. mente por trás da infraestrutura que garante a estabilidade e performance do projeto."
               extraContent={
                 <div className="flex flex-wrap gap-3">
                   <IconButton
                     label="GitHub"
-                    url="https://github.com/joaosilva"
+                    url="https://github.com/IasPY"
                     icon={<IconBrandGithub size={20} />}
                     variant="github"
                     newTab
@@ -102,10 +86,10 @@ export default function Developers() {
           <div className="transition duration-300 hover:scale-[1.02]">
             <ImageTextSection
               background
-              imageSrc="/home/students/student1.png"
-              imageAlt="Carlos Mendes"
-              title="Carlos Mendes - DevOps"
-              description="Responsável pela automação de deploys, integração contínua e infraestrutura em nuvem. Carlos assegurou que o projeto fosse escalável e eficiente desde o início."
+              imageSrc="/dev/dev4.png"
+              imageAlt="Joao Victor"
+              title="Joao Victor - Cientista de Dados"
+              description="Responsável pela criação do banco de dados e a integração contínua e infraestrutura. assegurou que o projeto fosse escalável e eficiente."
               extraContent={
                 <div className="flex flex-wrap gap-3">
                   <IconButton
@@ -139,10 +123,10 @@ export default function Developers() {
             <ImageTextSection
               background
               reverse
-              imageSrc="/home/students/student1.png"
-              imageAlt="Marina Rocha"
-              title="Marina Rocha - UI/UX Designer"
-              description="Criadora da identidade visual e da experiência do usuário. Marina trouxe conceitos modernos de design, garantindo que o produto fosse intuitivo e agradável de usar."
+              imageSrc="/dev/dev2.png"
+              imageAlt="Emilly Araujo"
+              title="Emilly Araujo - UI/UX Designer"
+              description="Criadora da identidade visual e da experiência do usuário. trouxe conceitos modernos de design, garantindo que o produto fosse intuitivo e agradável de usar."
               extraContent={
                 <div className="flex flex-wrap gap-3">
                   <IconButton
@@ -176,9 +160,9 @@ export default function Developers() {
           <div className="transition duration-300 hover:scale-[1.02]">
             <ImageTextSection
               background
-              imageSrc="/home/students/student1.png"
-              imageAlt="Lucas Fernandes"
-              title="Lucas Fernandes - Fullstack Developer"
+              imageSrc="/dev/dev1.png"
+              imageAlt="Gabriel Dos Santos"
+              title="Gabriel Dos Santos - Auxiliador de registros"
               description="Responsável por integrar as diferentes camadas do sistema, Lucas atuou tanto no backend quanto no frontend, garantindo que tudo funcionasse de forma coesa."
               extraContent={
                 <div className="flex flex-wrap gap-3">
